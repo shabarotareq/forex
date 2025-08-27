@@ -1,35 +1,33 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Dashboard from "./pages/Dashboard";
-import TechnicalAnalysis from "./pages/TechnicalAnalysis";
-import FundamentalAnalysis from "./pages/FundamentalAnalysis";
-import SentimentAnalysis from "./pages/SentimentAnalysis";
-import AIRecommendations from "./pages/AIRecommendations";
 import Sidebar from "./components/Sidebar";
 import Navbar from "./components/Navbar";
+import Dashboard from "./pages/Dashboard";
+import Trading from "./pages/Trading";
+import Analysis from "./pages/Analysis";
+import Portfolio from "./pages/Portfolio";
+import Settings from "./pages/Settings";
 
-export default function App() {
-  const [darkMode, setDarkMode] = useState(false);
-
+function App() {
   return (
-    <div className={darkMode ? "dark" : ""}>
-      <Router>
-        <div className="flex h-screen bg-gray-50 dark:bg-gray-900">
-          <Sidebar />
-          <div className="flex-1 flex flex-col">
-            <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
-            <main className="flex-1 overflow-auto">
-              <Routes>
-                <Route path="/" element={<Dashboard />} />
-                <Route path="/technical" element={<TechnicalAnalysis />} />
-                <Route path="/fundamental" element={<FundamentalAnalysis />} />
-                <Route path="/sentiment" element={<SentimentAnalysis />} />
-                <Route path="/ai" element={<AIRecommendations />} />
-              </Routes>
-            </main>
+    <Router>
+      <div className="flex">
+        <Sidebar />
+        <div className="flex-1">
+          <Navbar />
+          <div className="p-6">
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/trading" element={<Trading />} />
+              <Route path="/analysis" element={<Analysis />} />
+              <Route path="/portfolio" element={<Portfolio />} />
+              <Route path="/settings" element={<Settings />} />
+            </Routes>
           </div>
         </div>
-      </Router>
-    </div>
+      </div>
+    </Router>
   );
 }
+
+export default App;

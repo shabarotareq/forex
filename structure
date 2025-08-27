@@ -147,3 +147,17 @@ forex/
    │  └─ index.jsx
    ├─ package.json
    └─ tailwind.config.js
+
+src/
+ ├─ components/
+ │   ├─ Navbar.jsx
+ │   ├─ Sidebar.jsx
+ │   ├─ ForexPrices.jsx     ← هنا نعرض الأسعار اللحظية
+ │
+ ├─ pages/
+ │   ├─ Home.jsx
+ │   ├─ Profile.jsx
+ │   ├─ Settings.jsx
+ │
+ ├─ App.jsx                 ← يربط كل الصفحات
+ ├─ index.js
