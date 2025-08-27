@@ -1,0 +1,149 @@
+forex-dashboard/
+├─ backend/                   # FastAPI backend
+│  ├─ app/
+│  │  ├─ main.py              # نقطة الدخول للتطبيق
+│  │  ├─ models.py            # موديلات MongoDB
+│  │  ├─ routes/
+│  │  │  ├─ forex.py          # APIs أسعار الفوركس
+│  │  │  ├─ news.py           # الأخبار الاقتصادية
+│  │  │  ├─ sentiments.py     # تحليل المشاعر
+│  │  │  ├─ accounts.py       # إدارة الحسابات
+│  │  │  └─ alerts.py         # التنبيهات
+│  │  ├─ services/
+│  │  │  ├─ forex_api.py      # جلب أسعار الفوركس
+│  │  │  ├─ news_api.py       # جلب الأخبار
+│  │  │  └─ sentiment_analysis.py  # تحليل المشاعر
+│  │  └─ database.py          # اتصال MongoDB
+│  ├─ requirements.txt        # مكتبات Python
+│  └─ Dockerfile
+├─ frontend/                  # React + Tailwind CSS
+│  ├─ src/
+│  │  ├─ App.jsx
+│  │  ├─ index.jsx
+│  │  ├─ components/
+│  │  │  ├─ Sidebar.jsx
+│  │  │  ├─ Navbar.jsx
+│  │  │  ├─ Charts/
+│  │  │  │  ├─ TechnicalChart.jsx
+│  │  │  │  ├─ FundamentalChart.jsx
+│  │  │  │  └─ SentimentChart.jsx
+│  │  │  ├─ Widgets/
+│  │  │  │  ├─ ForexWidget.jsx
+│  │  │  │  ├─ NewsWidget.jsx
+│  │  │  │  └─ AlertsWidget.jsx
+│  │  │  └─ AccountManagement.jsx
+│  │  ├─ pages/
+│  │  │  ├─ Dashboard.jsx
+│  │  │  ├─ Accounts.jsx
+│  │  │  └─ Settings.jsx
+│  │  ├─ api/
+│  │  │  ├─ forex.js
+│  │  │  ├─ news.js
+│  │  │  └─ sentiments.js
+│  │  ├─ context/
+│  │  │  └─ ThemeContext.jsx   # Dark/Light Mode
+│  │  └─ styles/
+│  │     └─ tailwind.css
+│  ├─ package.json
+│  └─ tailwind.config.js
+├─ docker-compose.yml
+└─ README.md
+
+
+backend/
+│
+├─ app/
+│   ├─ main.py
+│   ├─ config.py
+│   ├─ database.py
+│   ├─ models/
+│   │   ├─ user.py
+│   │   ├─ forex_data.py
+│   │   ├─ alerts.py
+│   │   ├─ technical.py       # نموذج التحليل الفني
+│   │   ├─ fundamental.py     # نموذج التحليل الأساسي
+│   │   ├─ sentiment.py       # نموذج تحليل المشاعر
+│   │   └─ recommendations.py # نموذج التوصيات
+│   ├─ routers/
+│   │   ├─ auth.py
+│   │   ├─ accounts.py
+│   │   ├─ forex.py
+│   │   ├─ news.py
+│   │   ├─ technical.py       # Router التحليل الفني
+│   │   ├─ fundamental.py     # Router التحليل الأساسي
+│   │   ├─ sentiment.py       # Router تحليل المشاعر
+│   │   └─ recommendations.py # Router التوصيات
+│   └─ utils/
+│       ├─ fetchers.py
+│       ├─ analysis.py
+│       └─ ai_tools.py
+│
+├─ requirements.txt
+└─ .env
+
+frontend/
+│── package.json
+│── tailwind.config.js
+│── postcss.config.js
+│── vite.config.js
+│── index.html
+│
+└── src/
+    │── main.jsx
+    │── App.jsx
+    │── index.css
+    │
+    ├── components/
+    │   ├── Sidebar.jsx
+    │   ├── Navbar.jsx
+    │   ├── Widget.jsx
+    │   ├── Chart.jsx
+    │
+    ├── layouts/
+    │   └── DashboardLayout.jsx
+    │
+    ├── pages/
+    │   ├── Dashboard.jsx
+    │   ├── TechnicalAnalysis.jsx
+    │   ├── FundamentalAnalysis.jsx
+    │   ├── SentimentAnalysis.jsx
+    │   └── AIRecommendations.jsx
+    │
+    └── services/
+        └── api.js
+
+forex/
+│
+├─ backend/
+│  ├─ app/
+│  │  ├─ main.py
+│  │  ├─ routers/
+│  │  │  ├─ technical.py
+│  │  │  ├─ fundamentals.py
+│  │  │  ├─ sentiment.py
+│  │  │  └─ ai_recommendations.py
+│  │  └─ services/
+│  │     └─ forex_api.py
+│  └─ requirements.txt
+│
+└─ frontend/
+   ├─ public/
+   │  └─ index.html
+   ├─ src/
+   │  ├─ components/
+   │  │  ├─ Sidebar.jsx
+   │  │  ├─ Navbar.jsx
+   │  │  ├─ Widget.jsx
+   │  │  └─ Chart.jsx
+   │  ├─ pages/
+   │  │  ├─ Dashboard.jsx
+   │  │  ├─ TechnicalAnalysis.jsx
+   │  │  ├─ FundamentalAnalysis.jsx
+   │  │  ├─ SentimentAnalysis.jsx
+   │  │  └─ AIRecommendations.jsx
+   │  ├─ services/
+   │  │  └─ api.js
+   │  ├─ App.jsx
+   │  └─ index.jsx
+   ├─ package.json
+   └─ tailwind.config.js
